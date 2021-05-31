@@ -1,0 +1,111 @@
+buildscript {
+    repositories {
+        maven { url = 'https://files.minecraftforge.net/maven' }
+        maven { url = 'https://repo.spongepowered.org/maven' }
+        maven {
+            name = 'impactdevelopment-repo'
+            url = 'https://impactdevelopment.github.io/maven/'
+        }
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath group: 'com.github.ImpactDevelopment', name: 'ForgeGradle', version: '3.0.115'
+        classpath group: 'com.github.ImpactDevelopment', name: 'MixinGradle', version: '0.6.2'
+    }
+}
+
+plugins {
+    id 'de.undercouch.download' version '4.0.0'
+}
+apply plugin: 'net.minecraftforge.gradle'
+// Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
+apply plugin: 'eclipse'
+apply plugin: 'maven-publish'
+apply plugin: 'org.spongepowered.mixin'
+
+version = '1.0.0'
+group = 'com.example' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = 'Example Addon'
+
+sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+
+def mcpVersion = [channel: 'snapshot', version: '20201028-1.16.3']
+
+mixin {
+    defaultObfuscationEnv searge
+    add sourceSets.main, "example.refmap.json"
+}
+
+minecraft {
+    mappings mcpVersion
+
+    if (getProject().hasProperty("forge")) {
+        reobfMappings 'searge'
+    } else {
+        reobfMappings 'notch'
+    }
+
+    runs {
+        client {
+            workingDirectory project.file('run')
+
+            main "launch.AddonLauncher"
+
+            environment 'assetIndex', '{asset_index}'
+            environment 'assetDirectory', downloadAssets.output
+            environment 'nativesDirectory', extractNatives.output
+
+            environment 'tweakClass', 'net.labymod.vanilla.LabyModTweaker'
+
+            jvmArg('-DdebugMode=true')
+            jvmArg('-Daddonresources=addon.json')
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name = "spongepowered"
+        url = "https://repo.spongepowered.org/maven"
+    }
+    maven {
+        name = 'impactdevelopment-repo'
+        url = 'https://impactdevelopment.github.io/maven/'
+    }
+    mavenLocal()
+}
+
+
+dependencies {
+    annotationProcessor("org.spongepowered:mixin:0.8.2:processor")
+
+    minecraft 'com.github.ImpactDevelopment:Vanilla:1.16.5'
+    compile(files('libs/lm_api_mc1.16.5.jar'))
+
+    compile("org.ow2.asm:asm-analysis:6.2") { transitive = false }
+    compile("org.ow2.asm:asm-util:6.2") { transitive = false }
+    compile("org.ow2.asm:asm-commons:6.2") { transitive = false }
+    compile("org.spongepowered:mixin:0.8.2") { transitive = false }
+    compile("net.minecraft:launchwrapper:1.12") { transitive = false }
+}
+
+jar {
+    // Excludes the start file
+    exclude("**/launch")
+}
+
+task downloadAPI(type: Download) {
+    group("labymod")
+
+    File libraryDirectory = new File("libs/")
+
+    if (!libraryDirectory.exists()) {
+        libraryDirectory.mkdirs()
+    }
+
+    src "https://dl.labymod.net/latest/api/files/lm_api_mc1.16.5.jar"
+    dest 'libs/'
+}
+

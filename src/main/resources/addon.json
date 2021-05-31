@@ -1,0 +1,6 @@
+{
+  "name": "Example Addon",
+  "uuid": "%uuid%",
+  "mainClass": "com.example.addon.ExampleAddon",
+  "transformerClass": "com.example.addon.ExampleAddonTransformer"
+}
