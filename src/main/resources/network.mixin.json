@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "de.rexlmanu.viaversionaddon.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "network.refmap.json",
+  "verbose": false,
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "MixinNetworkManager",
+    "MixinNetworkManagerInCh"
+  ]
+}

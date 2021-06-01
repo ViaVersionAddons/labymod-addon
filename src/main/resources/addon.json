@@ -1,6 +1,18 @@
 {
-  "name": "Example Addon",
+  "name": "ViaVersion",
   "uuid": "%uuid%",
-  "mainClass": "com.example.addon.ExampleAddon",
-  "transformerClass": "com.example.addon.ExampleAddonTransformer"
+  "mainClass": "de.rexlmanu.viaversionaddon.ViaVersionAddon",
+  "transformerClass": "de.rexlmanu.viaversionaddon.ViaVersionAddonTransformer",
+  "author": "_MylesC, creeper123123321, Gerrygames, KennyTV, Matsv",
+  "description": "ViaVersion implemented clientside to switch easily your protocol version between 1.8 and 1.17.",
+  "authors": [
+    "_MylesC",
+    "creeper123123321",
+    "Gerrygames",
+    "KennyTV",
+    "Matsv"
+  ],
+  "category": 3,
+  "icon": "https://avatars.githubusercontent.com/u/42077435?s=200&v=4",
+  "version": 1.0
 }

@@ -24,17 +24,22 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 apply plugin: 'org.spongepowered.mixin'
 
-version = '1.0.0'
-group = 'com.example' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = 'Example Addon'
+version = '1.0'
+group = 'de.rexlmanu' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = 'viaversion-addon'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 
 def mcpVersion = [channel: 'snapshot', version: '20201028-1.16.3']
 
+configurations {
+    shade
+    compile.extendsFrom shade
+}
+
 mixin {
     defaultObfuscationEnv searge
-    add sourceSets.main, "example.refmap.json"
+    add sourceSets.main, "network.refmap.json"
 }
 
 minecraft {
@@ -74,15 +79,27 @@ repositories {
         name = 'impactdevelopment-repo'
         url = 'https://impactdevelopment.github.io/maven/'
     }
+    maven { url = "https://repo.viaversion.com/" }
     mavenLocal()
 }
 
 
 dependencies {
     annotationProcessor("org.spongepowered:mixin:0.8.2:processor")
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
 
     minecraft 'com.github.ImpactDevelopment:Vanilla:1.16.5'
-    compile(files('libs/lm_api_mc1.16.5.jar'))
+
+    shade("org.yaml:snakeyaml:1.28")
+    shade("com.viaversion:viaversion:4.0.0-1.17-pre2-SNAPSHOT") { transitive = false }
+    shade("com.viaversion:viabackwards:4.0.0-1.17-pre2-SNAPSHOT") { transitive = false }
+    shade("com.viaversion:viarewind-core:2.0.0-SNAPSHOT") { transitive = false }
+
+    compile(files(
+            'libs/lm_api_mc1.16.5.jar',
+    ))
+
+    compileOnly 'org.projectlombok:lombok:1.18.20'
 
     compile("org.ow2.asm:asm-analysis:6.2") { transitive = false }
     compile("org.ow2.asm:asm-util:6.2") { transitive = false }
@@ -94,6 +111,11 @@ dependencies {
 jar {
     // Excludes the start file
     exclude("**/launch")
+    configurations.shade.each { dep ->
+        from(project.zipTree(dep)) {
+            exclude 'META-INF', 'META-INF/**'
+        }
+    }
 }
 
 task downloadAPI(type: Download) {

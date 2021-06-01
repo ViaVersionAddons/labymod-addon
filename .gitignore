@@ -67,6 +67,7 @@ run/**
 # .idea/compiler.xml
 .idea/modules.xml
 .idea/*.iml
+.idea
 # .idea/modules
 # *.iml
 # *.ipr
