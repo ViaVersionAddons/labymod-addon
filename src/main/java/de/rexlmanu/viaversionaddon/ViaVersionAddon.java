@@ -5,6 +5,7 @@ import com.viaversion.viaversion.ViaManagerImpl;
 import com.viaversion.viaversion.api.Via;
 import com.viaversion.viaversion.api.data.MappingDataLoader;
 import de.rexlmanu.viaversionaddon.loader.AddonBackwardsLoader;
+import de.rexlmanu.viaversionaddon.loader.AddonRewindLoader;
 import de.rexlmanu.viaversionaddon.loader.AddonViaProviderLoader;
 import de.rexlmanu.viaversionaddon.menu.ProtocolScreen;
 import de.rexlmanu.viaversionaddon.platform.AddonInjector;
@@ -83,6 +84,7 @@ public class ViaVersionAddon extends LabyModAddon {
 
 
         new AddonBackwardsLoader(new File(this.dataFolder, "backwards"));
+        new AddonRewindLoader(new File(this.dataFolder, "viarewind"));
 
         this.initFuture.complete(null);
 

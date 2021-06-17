@@ -92,8 +92,8 @@ dependencies {
 
     shade("org.yaml:snakeyaml:1.28")
     shade("com.viaversion:viaversion:4.0.1-SNAPSHOT") { transitive = false }
-    shade("com.viaversion:viabackwards:4.0.1-SNAPSHOT") { transitive = false }
-    shade("com.viaversion:viarewind-fabric:2.0.1-SNAPSHOT") { transitive = false }
+    shade("com.viaversion:viabackwards:4.0.1-SNAPSHOT")
+    shade("com.viaversion:viarewind-fabric:2.0.1-SNAPSHOT")
 
     compile(files(
             'libs/lm_api_mc1.16.5.jar',
