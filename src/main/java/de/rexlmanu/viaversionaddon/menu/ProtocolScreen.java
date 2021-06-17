@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 
 public class ProtocolScreen extends Screen {
 
-    private static List<Integer> BLOCKED_VERSIONS = ImmutableList.of(51, 60, 61, 73, 74, 77, 78, 4, 5, -1, 755);
+    private static List<Integer> BLOCKED_VERSIONS = ImmutableList.of(51, 60, 61, 73, 74, 77, 78, 4, 5, -1);
 
     private Screen previousScreen;
 

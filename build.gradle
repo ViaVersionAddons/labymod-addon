@@ -24,7 +24,7 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 apply plugin: 'org.spongepowered.mixin'
 
-version = '1.0'
+version = '1.1'
 group = 'de.rexlmanu' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'viaversion-addon'
 
@@ -109,6 +109,14 @@ dependencies {
 }
 
 jar {
+    // Removing files from dependencies
+    exclude(
+            "mcmod.info",
+            "fabric.mod.json",
+            "velocity-plugin.json",
+            "bungee.yml",
+            "plugin.yml",
+    )
     // Excludes the start file
     exclude("**/launch")
     configurations.shade.each { dep ->
