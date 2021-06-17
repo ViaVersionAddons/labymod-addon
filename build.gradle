@@ -91,9 +91,9 @@ dependencies {
     minecraft 'com.github.ImpactDevelopment:Vanilla:1.16.5'
 
     shade("org.yaml:snakeyaml:1.28")
-    shade("com.viaversion:viaversion:4.0.0-1.17-pre2-SNAPSHOT") { transitive = false }
-    shade("com.viaversion:viabackwards:4.0.0-1.17-pre2-SNAPSHOT") { transitive = false }
-    shade("com.viaversion:viarewind-core:2.0.0-SNAPSHOT") { transitive = false }
+    shade("com.viaversion:viaversion:4.0.1-SNAPSHOT") { transitive = false }
+    shade("com.viaversion:viabackwards:4.0.1-SNAPSHOT") { transitive = false }
+    shade("com.viaversion:viarewind-fabric:2.0.1-SNAPSHOT") { transitive = false }
 
     compile(files(
             'libs/lm_api_mc1.16.5.jar',
