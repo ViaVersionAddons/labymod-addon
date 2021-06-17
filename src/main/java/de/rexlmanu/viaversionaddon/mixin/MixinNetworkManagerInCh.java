@@ -20,7 +20,6 @@ public class MixinNetworkManagerInCh {
     @Inject(method = "initChannel", at = @At(value = "TAIL"), remap = false)
     private void onInitChannel(Channel channel, CallbackInfo ci) {
         if (channel instanceof SocketChannel && ViaVersionAddon.SHARED_VERSION != ViaVersionAddon.getInstance().getVersion()) {
-            System.out.println("its working");
 
             UserConnection user = new UserConnectionImpl(channel, true);
             new ProtocolPipelineImpl(user);
