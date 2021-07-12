@@ -24,7 +24,7 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 apply plugin: 'org.spongepowered.mixin'
 
-version = '1.1'
+version = '1.2'
 group = 'de.rexlmanu' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'viaversion-addon'
 
@@ -91,8 +91,8 @@ dependencies {
     minecraft 'com.github.ImpactDevelopment:Vanilla:1.16.5'
 
     shade("org.yaml:snakeyaml:1.28")
-    shade("com.viaversion:viaversion:4.0.1-SNAPSHOT") { transitive = false }
-    shade("com.viaversion:viabackwards:4.0.1-SNAPSHOT")
+    shade("com.viaversion:viaversion:4.0.1") { transitive = false }
+    shade("com.viaversion:viabackwards:4.0.1")
     shade("com.viaversion:viarewind-fabric:2.0.1-SNAPSHOT")
 
     compile(files(
