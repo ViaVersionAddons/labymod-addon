@@ -1,12 +1,9 @@
 name: Releases
 
-on:
+on: 
   push:
-    branches:
-    - main
-  pull_request:
-    branches:
-    - main
+    tags:
+    - '*'
 
 jobs:
   build:
