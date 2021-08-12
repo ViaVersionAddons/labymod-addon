@@ -1,13 +1,11 @@
-name: Gradle build
+name: Releases
 
 on:
   push:
     branches:
-    - master
     - main
   pull_request:
     branches:
-    - master
     - main
 
 jobs:
@@ -30,3 +28,8 @@ jobs:
       with:
         name: Artifacts
         path: build/libs/
+    - uses: ncipollo/release-action@v1
+      with:
+        artifacts: "build/libs/*.jar"
+        token: ${{ secrets.GITHUB_TOKEN }}
+        draft: true
