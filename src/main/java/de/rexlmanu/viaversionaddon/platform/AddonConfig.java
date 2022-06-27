@@ -1,9 +1,9 @@
 package de.rexlmanu.viaversionaddon.platform;
 
+import com.viaversion.viaversion.api.protocol.version.BlockedProtocolVersions;
 import com.viaversion.viaversion.configuration.AbstractViaConfig;
 import com.viaversion.viaversion.libs.fastutil.ints.IntOpenHashSet;
-import com.viaversion.viaversion.libs.fastutil.ints.IntSet;
-
+import com.viaversion.viaversion.protocol.BlockedProtocolVersionsImpl;
 import java.io.File;
 import java.net.URL;
 import java.util.Arrays;
@@ -33,8 +33,8 @@ public class AddonConfig extends AbstractViaConfig {
     }
 
     @Override
-    public IntSet getBlockedProtocols() {
-        return new IntOpenHashSet();
+    public BlockedProtocolVersions blockedProtocolVersions() {
+        return new BlockedProtocolVersionsImpl(new IntOpenHashSet(), -1, -1);
     }
 
     @Override
