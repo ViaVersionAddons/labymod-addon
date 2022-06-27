@@ -50,7 +50,7 @@ public class AddonPlatform implements ViaPlatform<UUID> {
 
     @Override
     public String getPluginVersion() {
-        return "4.0.0";
+        return "4.3.2-SNAPSHOT";
     }
 
     @Override
