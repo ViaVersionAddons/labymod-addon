@@ -4,7 +4,7 @@
   "mainClass": "de.rexlmanu.viaversionaddon.ViaVersionAddon",
   "transformerClass": "de.rexlmanu.viaversionaddon.ViaVersionAddonTransformer",
   "author": "_MylesC, creeper123123321, Gerrygames, KennyTV, Matsv",
-  "description": "ViaVersion implemented clientside to switch easily your protocol version between 1.8 and 1.17.",
+  "description": "ViaVersion implemented clientside to switch easily your protocol version between 1.8 and 1.19.",
   "authors": [
     "_MylesC",
     "creeper123123321",
