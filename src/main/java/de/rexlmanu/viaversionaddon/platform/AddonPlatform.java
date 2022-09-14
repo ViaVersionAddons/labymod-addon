@@ -128,6 +128,11 @@ public class AddonPlatform implements ViaPlatform<UUID> {
         return true;
     }
 
+    @Override
+    public boolean hasPlugin(String name) {
+        return false;
+    }
+
     private <T extends Future<?>> GenericFutureListener<T> errorLogger() {
         return future -> {
             if (!future.isCancelled() && future.cause() != null) {
