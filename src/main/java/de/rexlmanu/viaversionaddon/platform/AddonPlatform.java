@@ -3,13 +3,16 @@ package de.rexlmanu.viaversionaddon.platform;
 import com.viaversion.viaversion.api.command.ViaCommandSender;
 import com.viaversion.viaversion.api.configuration.ConfigurationProvider;
 import com.viaversion.viaversion.api.configuration.ViaVersionConfig;
+import com.viaversion.viaversion.api.connection.UserConnection;
 import com.viaversion.viaversion.api.platform.PlatformTask;
+import com.viaversion.viaversion.api.platform.UnsupportedSoftware;
 import com.viaversion.viaversion.api.platform.ViaPlatform;
 import com.viaversion.viaversion.libs.gson.JsonObject;
 import de.rexlmanu.viaversionaddon.ViaVersionAddon;
 import de.rexlmanu.viaversionaddon.utility.FutureTaskId;
 import io.netty.util.concurrent.Future;
 import io.netty.util.concurrent.GenericFutureListener;
+import java.util.Collection;
 import lombok.Getter;
 
 import java.io.File;
@@ -99,6 +102,11 @@ public class AddonPlatform implements ViaPlatform<UUID> {
     }
 
     @Override
+    public boolean disconnect(UserConnection connection, String message) {
+        return ViaPlatform.super.disconnect(connection, message);
+    }
+
+    @Override
     public boolean isPluginEnabled() {
         return true;
     }
@@ -126,6 +134,16 @@ public class AddonPlatform implements ViaPlatform<UUID> {
     @Override
     public boolean isOldClientsAllowed() {
         return true;
+    }
+
+    @Override
+    public Collection<UnsupportedSoftware> getUnsupportedSoftwareClasses() {
+        return ViaPlatform.super.getUnsupportedSoftwareClasses();
+    }
+
+    @Override
+    public boolean hasPlugin(String name) {
+        return false;
     }
 
     private <T extends Future<?>> GenericFutureListener<T> errorLogger() {
