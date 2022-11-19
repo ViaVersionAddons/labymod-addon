@@ -2,9 +2,9 @@ name: LabyAddon Build
 
 on:
   push:
-    branches: [ "master", "main" ]
+    branches : [ "v4" ]
   pull_request:
-    branches: [ "master", "main" ]
+    branches : [ "v4" ]
   workflow_dispatch:
 
 env:
