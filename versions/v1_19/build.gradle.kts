@@ -38,7 +38,7 @@ volt {
         minVersion = "0.8.2"
     }
 
-    packageName("org.example.addon.v1_19.mixins")
+    packageName("de.rexlmanu.viaversionaddon.v1_19.mixins")
 
     //Use this if you want to inherit the mixins from your 1.18 implementation
     //packageName("org.example.addon.v1_18.mixins")

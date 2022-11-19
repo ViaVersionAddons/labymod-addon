@@ -1,0 +1,13 @@
+{
+  "viaversionaddon": {
+    "settings": {
+      "name": "ViaVersionAddon",
+      "enabled": {
+        "name": "Enabled"
+      },
+      "version": {
+        "name": "Version"
+      }
+    }
+  }
+}

@@ -2,16 +2,30 @@ version = "0.1.0"
 
 plugins {
     id("java-library")
+    id("io.freefair.lombok") version "6.5.1"
 }
 
 repositories {
     mavenLocal()
+    maven("https://repo.viaversion.com/")
+    mavenCentral()
 }
 
 dependencies {
     labyProcessor()
     api(project(":api"))
 
+    implementation("org.yaml:snakeyaml:1.33")
+    implementation("com.viaversion:viaversion:4.4.3-SNAPSHOT")
+    implementation("com.viaversion:viabackwards:4.4.2-SNAPSHOT")
+    implementation("com.viaversion:viarewind-fabric:2.0.3-SNAPSHOT")
+
+    maven("https://repo.viaversion.com/", "com.viaversion:viaversion:4.4.3-SNAPSHOT")
+    maven("https://repo.viaversion.com/", "com.viaversion:viabackwards:4.4.2-SNAPSHOT")
+    maven("https://repo.viaversion.com/", "com.viaversion:viarewind-fabric:2.0.3-SNAPSHOT")
+
+    compileOnly("io.netty:netty-all:4.1.77.Final")
+    compileOnly("com.google.guava:guava:30.1.1-jre")
     // If you want to use external libraries, you can do that here.
     // The dependencies that are specified here are loaded into your project but will also
     // automatically be downloaded by labymod, but only if the repository is public.

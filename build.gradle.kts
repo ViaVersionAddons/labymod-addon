@@ -36,7 +36,7 @@ plugins {
     id("java-library")
 }
 
-group = "org.example"
+group = "de.rexlmanu.viaversionaddon"
 version = "1.0.0"
 
 plugins.apply("net.labymod.gradle.addon")
@@ -50,6 +50,7 @@ subprojects {
     repositories {
         maven("https://libraries.minecraft.net/")
         maven("https://repo.spongepowered.org/repository/maven-public/")
+        maven("https://repo.viaversion.com/")
         mavenLocal()
     }
 
@@ -60,10 +61,10 @@ subprojects {
 
 addon {
     addonInfo {
-        namespace("example")
-        displayName("Example Addon")
-        author("Example Author")
-        description("An Example Description!")
+        namespace("viaversionaddon")
+        displayName("ViaVersion Addon")
+        author("rexlManu")
+        description("ViaVersion implemented clientside to switch easily your protocol version.")
         version(System.getenv().getOrDefault("VERSION", "0.0.0"))
 
         //if you want to add dependencies, go to the build.gradle.kts in the core or api module

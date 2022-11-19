@@ -38,11 +38,8 @@ volt {
         minVersion = "0.8.2"
     }
 
-    packageName("org.example.addon.v1_18.mixins")
-
     //Use this if you want to inherit the mixins from your 1.17 implementation
-    //packageName("org.example.addon.v1_17.mixins")
-    //inheritFrom("v1_17")
+    packageName("de.rexlmanu.viaversionaddon.v1_18.mixins")
 
     version = minecraftGameVersion
 }
