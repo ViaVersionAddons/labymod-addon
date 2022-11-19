@@ -37,7 +37,7 @@ plugins {
 }
 
 group = "de.rexlmanu.viaversionaddon"
-version = "1.0.0"
+version = "2.0"
 
 plugins.apply("net.labymod.gradle.addon")
 
