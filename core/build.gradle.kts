@@ -21,8 +21,8 @@ dependencies {
     implementation("com.viaversion:viarewind-fabric:2.0.3-SNAPSHOT")
 
     maven("https://oss.sonatype.org/service/local/staging/deploy/maven2/", "org.yaml:snakeyaml:1.33")
-    maven("https://repo.viaversion.com/", "com.viaversion:viaversion:4.4.3-SNAPSHOT")
-    maven("https://repo.viaversion.com/", "com.viaversion:viabackwards:4.4.2-SNAPSHOT")
+    maven("https://repo.viaversion.com/", "com.viaversion:viaversion:4.5.0-22w43a-SNAPSHOT")
+    maven("https://repo.viaversion.com/", "com.viaversion:viabackwards:4.5.0-22w43a-SNAPSHOT")
     maven("https://repo.viaversion.com/", "com.viaversion:viarewind-fabric:2.0.3-SNAPSHOT")
 
     compileOnly("io.netty:netty-all:4.1.77.Final")
